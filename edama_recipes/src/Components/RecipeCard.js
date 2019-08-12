@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 
 const RecipeCard = ({ title, calories, imgURL }) => {
     return (
-        <div>
-            <h3>{title}</h3>
-            <p>{calories}</p>
+        <article className="recipe-card">
             <img src={imgURL} alt="Recipe"/>
-        </div>
+            <h3>{title}</h3>
+            <p> 
+                &bull; <span className="calories">{calories}</span>
+            </p>
+        </article>
     );
 }
 

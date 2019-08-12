@@ -24,6 +24,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <SearchForm callback={this.callback} />
+        <div className="recipe-section">
         {
           this.state.recipes.map((recipe, index) => {
             return <RecipeCard 
@@ -34,6 +35,7 @@ class App extends React.Component {
                     />
           })
         }
+        </div>
       </div>
     );
   }

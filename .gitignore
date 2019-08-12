@@ -193,6 +193,9 @@ PublishScripts/
 csx/
 *.build.csdef
 
+#Environment Variables file
+*.env
+
 # Microsoft Azure Emulator
 ecf/
 rcf/

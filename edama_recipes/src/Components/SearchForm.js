@@ -30,7 +30,7 @@ export default class SearchForm extends Component {
         })
         .then((resJson) => {
             // this.props.updateRecipes(resJson.hits)
-            console.log(resJson.hits[0].recipe);
+            this.props.callback(resJson.hits);
         });
     }
 

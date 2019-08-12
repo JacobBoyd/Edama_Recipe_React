@@ -4,20 +4,39 @@ import './App.css';
 import SearchForm from './Components/SearchForm';
 import RecipeCard from './Components/RecipeCard';
 
-function App() {
-  // const request = `https://api.edamam.com/search?q=chicken&app_id=${API_ID}&app_key=${API_KEY}`;
 
-  // const updateRecipes = (hits) =>  {
-  //   console.table(hits);
-  // }
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      recipes: []
+    }
+  }
 
-  return (
-    <div className="App">
-      <SearchForm />
-      <RecipeCard />
-    </div>
-  );
+  callback = (recipeHits) => {
+    this.setState({
+      recipes: recipeHits
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <SearchForm callback={this.callback} />
+        {
+          this.state.recipes.map((recipe, index) => {
+            return <RecipeCard 
+                      title={recipe.recipe.label}
+                      calories={recipe.recipe.calories}
+                      imgURL={recipe.recipe.image}
+                      key={index}
+                    />
+          })
+        }
+      </div>
+    );
+  }
 }
 
 export default App;

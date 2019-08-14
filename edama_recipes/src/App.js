@@ -14,23 +14,30 @@ class App extends React.Component {
     }
   }
 
-  callback = (recipeHits) => {
+  callback = (hits) => {
+    let recipes = hits.map((recipe) => {
+      return recipe.recipe;
+    })
+    console.table(recipes);
     this.setState({
-      recipes: recipeHits
+      recipes: recipes
     })
   }
 
   render() {
     return (
       <div className="App">
+        <div className="header">
+          <h1>Edamam Recipe Search</h1>
+        </div>
         <SearchForm callback={this.callback} />
         <div className="recipe-section">
         {
           this.state.recipes.map((recipe, index) => {
             return <RecipeCard 
-                      title={recipe.recipe.label}
-                      calories={recipe.recipe.calories}
-                      imgURL={recipe.recipe.image}
+                      title={recipe.label}
+                      calories={recipe.calories}
+                      imgURL={recipe.image}
                       key={index}
                     />
           })

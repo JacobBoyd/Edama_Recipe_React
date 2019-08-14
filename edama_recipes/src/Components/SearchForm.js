@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { FaSearch } from 'react-icons/fa';
 
 
 const API_ID = process.env.REACT_APP_API_KEY;
@@ -14,9 +15,12 @@ export default class SearchForm extends Component {
         }
     }
 
-    onChange(e) {
+    onChangeSearchTerms(e) {
+        let searchTerms = e.target.value;
+        let joinedTerms = searchTerms.replace(/[ ,]+/g, ",");
+        console.log(joinedTerms);
         this.setState({
-            [e.target.name] : e.target.value
+            searchTerm : joinedTerms
         });
     }
 
@@ -38,8 +42,9 @@ export default class SearchForm extends Component {
         return (
             <>
                 <form className="search-form" onSubmit={e => this.onSubmit(e)}>
-                <input type="text" className="search-bar" name="searchTerm" onChange={e => this.onChange(e)}/>
-                <button type="submit" className="search-btn">Search</button>
+                    {/* <FaSearch className="icon"/> */}
+                    <input type="text" className="search-bar" placeholder={this.state.searchTerm || "Search for Ingredients"} name="searchTerm" onChange={e => this.onChangeSearchTerms(e)}/>
+                    <button type="submit" className="search-btn">Search</button>
                 </form>
             </>
         )

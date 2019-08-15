@@ -18,7 +18,7 @@ export default class SearchForm extends Component {
     onChangeSearchTerms(e) {
         let searchTerms = e.target.value;
         let joinedTerms = searchTerms.replace(/[ ,]+/g, ",");
-        console.log(joinedTerms);
+        
         this.setState({
             searchTerm : joinedTerms
         });
@@ -40,13 +40,12 @@ export default class SearchForm extends Component {
 
     render() {
         return (
-            <>
+            <div className="form-container">
                 <form className="search-form" onSubmit={e => this.onSubmit(e)}>
-                    {/* <FaSearch className="icon"/> */}
                     <input type="text" className="search-bar" placeholder={this.state.searchTerm || "Search for Ingredients"} name="searchTerm" onChange={e => this.onChangeSearchTerms(e)}/>
-                    <button type="submit" className="search-btn">Search</button>
+                    <button type="submit" className="icon"><FaSearch /></button>
                 </form>
-            </>
+            </div>
         )
     }
 }

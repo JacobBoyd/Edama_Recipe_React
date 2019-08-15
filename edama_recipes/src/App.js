@@ -17,8 +17,7 @@ class App extends React.Component {
   callback = (hits) => {
     let recipes = hits.map((recipe) => {
       return recipe.recipe;
-    })
-    console.table(recipes);
+    });
     this.setState({
       recipes: recipes
     })

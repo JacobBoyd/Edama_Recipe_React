@@ -12,6 +12,7 @@
   --accent-color: #747474;
 
 }
+
 .App {
   text-align: center;
   background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
@@ -28,11 +29,12 @@
 
 /* Search Form */
 .search-form {
-  margin-bottom: 15px;
+  margin: 0 auto;
 }
+
 .search-bar {
   width: 25%;
-  padding: 8px 10px;
+  padding: 5px 10px;
   margin: 0 5px;
 }
 
@@ -43,20 +45,35 @@
 .icon {
   padding: 10px 5px;
   background-color: rgba(0, 0, 0, 0.25);
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  color: white;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  right: 6px;
+  border: none;
 }
 
-.search-form input[type=text] {
+.form-container {
+  position: relative;
+  margin: 0 auto;
+}
+
+.form-container input[type=text] {
+  min-width: 177px;
   background-color: rgba(0, 0, 0, 0.25);
+  height: 45px;
+  padding-right: 50px;
   border: none;
   color: #f7f7f7;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
   transition: background-color 0.5s ease;
 }
 
-.search-form input[type=text]:focus {
+.form-container input[type=text]:focus {
   background-color: rgba(0, 0, 0, 0.45);
 }
 
